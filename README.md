@@ -1,2 +1,2 @@
-# fireAuth
+# firebaseAuth
 Created with CodeSandbox
