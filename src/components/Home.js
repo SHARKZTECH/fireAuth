@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="home">
       <h1>Hello Home</h1>
-      <p>{user}</p>
+      <p>{user.email}</p>
     </div>
   );
 }

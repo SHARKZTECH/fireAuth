@@ -19,7 +19,10 @@ export default function Login() {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log("Singed in user: ", user);
-          sessionStorage.setItem("user", user.email);
+          sessionStorage.setItem("user", {
+            email: user.email,
+            token: user.accessToken
+          });
           navigate("/");
         })
         .catch((error) => {
