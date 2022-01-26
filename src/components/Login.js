@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Form, Button, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,11 +19,15 @@ export default function Login() {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log("Singed in user: ", user);
+          sessionStorage.setItem("user", user.email);
+          navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log("An error occured: ", errorCode, errorMessage);
+          setEmail("");
+          setPassword("");
         });
     }
   };

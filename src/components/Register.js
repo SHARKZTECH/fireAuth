@@ -1,9 +1,10 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Form, Button, Container } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -24,6 +25,7 @@ export default function Register() {
           setEmail("");
           setPassword("");
           setPassword2("");
+          navigate("/login");
         })
         .catch((error) => {
           const errorCode = error.code;
