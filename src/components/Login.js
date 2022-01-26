@@ -6,10 +6,14 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("clicked");
+    if (!email || !password) {
+      alert("all fields required!");
+    } else {
+      console.log(email, password);
+    }
   };
   return (
-    <Form>
+    <Form onSubmit={handleLogin}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
@@ -28,7 +32,7 @@ export default function Login() {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit" onSubmit={handleLogin}>
+      <Button variant="primary" type="submit">
         Login
       </Button>
     </Form>
