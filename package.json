@@ -9,11 +9,13 @@
   "main": "src/index.js",
   "dependencies": {
     "@reduxjs/toolkit": "1.7.1",
+    "bootstrap-router": "0.1.1-a",
     "firebase": "9.6.4",
     "react": "17.0.2",
     "react-bootstrap": "2.1.1",
     "react-dom": "17.0.2",
     "react-redux": "7.2.6",
+    "react-router-bootstrap": "0.26.0",
     "react-router-dom": "6.2.1",
     "react-scripts": "4.0.0"
   },

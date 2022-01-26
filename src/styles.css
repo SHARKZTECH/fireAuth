@@ -1,4 +1,10 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.main {
+  padding-top: 5px;
+  width: 500px;
+  height: 100vh;
+  border: 1px solid gold;
 }

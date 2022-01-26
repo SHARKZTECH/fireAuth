@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Form, Button, Container } from "react-bootstrap";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -34,6 +35,8 @@ export default function Register() {
 
   return (
     <Container>
+      <h4>SIGN UP</h4>
+
       <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -68,6 +71,11 @@ export default function Register() {
         <Button variant="primary" type="submit">
           Register
         </Button>
+        <Form.Group>
+          <Form.Text>
+            Already have an account ? Sing In <Link to="/login">here</Link>
+          </Form.Text>
+        </Form.Group>
       </Form>
     </Container>
   );
