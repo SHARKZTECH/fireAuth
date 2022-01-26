@@ -7,6 +7,8 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
+  const auth=getAuth();
+
   const handleRegister = (e) => {
     e.preventDefault();
     if (!email || !password || !password2) {
@@ -14,7 +16,19 @@ export default function Register() {
     } else if (password !== password2) {
       alert("passwords don`t match!");
     } else {
-      console.log(email, password);
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("Registered user: ", user);
+        setEmail("");
+        setPassword("");
+        setPassword2("");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Error ocured: ", errorCode, errorMessage);
+      });
     }
   };
 
