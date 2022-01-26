@@ -7,7 +7,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
-  const auth=getAuth();
+  const auth = getAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,18 +17,18 @@ export default function Register() {
       alert("passwords don`t match!");
     } else {
       createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("Registered user: ", user);
-        setEmail("");
-        setPassword("");
-        setPassword2("");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("Error ocured: ", errorCode, errorMessage);
-      });
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("Registered user: ", user);
+          setEmail("");
+          setPassword("");
+          setPassword2("");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log("Error ocured: ", errorCode, errorMessage);
+        });
     }
   };
 
@@ -40,6 +40,7 @@ export default function Register() {
           <Form.Control
             type="email"
             placeholder="Enter email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
@@ -49,6 +50,7 @@ export default function Register() {
           <Form.Control
             type="password"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
@@ -58,6 +60,7 @@ export default function Register() {
           <Form.Control
             type="password"
             placeholder="Confirm Password"
+            value={password2}
             onChange={(e) => setPassword2(e.target.value)}
           />
         </Form.Group>
