@@ -10,7 +10,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "1.7.1",
     "bootstrap-router": "0.1.1-a",
-    "firebase": "9.6.4",
+    "firebase": "10.9.0",
     "react": "17.0.2",
     "react-bootstrap": "2.1.1",
     "react-dom": "17.0.2",
